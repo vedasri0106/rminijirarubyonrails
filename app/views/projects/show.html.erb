@@ -1,0 +1,28 @@
+<!-- app/views/projects/show.html.erb -->
+<h1><%= @project.name %></h1>
+
+<p><%= @project.description %></p>
+
+<h3>Tasks</h3>
+
+
+<div id="tasks">
+  <%= render partial: 'tasks/task', collection: @project.tasks, as: :task %>
+</div>
+ 
+ 
+<!-- app/views/projects/show.html.erb -->
+<h1><%= @project[:name] %> - Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <% if task[:project_id] == @project[:id] %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= task[:title] %></h5>
+        <p class="card-text">Status: <%= task[:status] %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% end %>

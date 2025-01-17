@@ -1,0 +1,26 @@
+# # <%= turbo_stream.append "tasks" do %>
+# #     <%= render partial: 'tasks/task', locals: { task: @task } %>
+  
+# #     <% end %>  
+# def update
+#     @task = Task.find(params[:id])
+#     if @task.update(task_params)
+#       respond_to do |format|
+#         format.turbo_stream # This automatically uses update.turbo_stream.erb
+#         format.html { redirect_to project_path(@task.project), notice: 'Task updated successfully.' }
+#       end
+#     else
+#       render :edit, status: :unprocessable_entity
+#     end
+#   end
+
+
+
+<turbo-stream action="append" target="tasks">
+  <template>
+    <div class="task" id="task_1">
+      <h4>Task Title - done</h4>
+      <p>Task Description</p>
+    </div>
+  </template>
+</turbo-stream>
